@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cake.Tfs.AutoMerge</name>
+    </assembly>
+    <members>
+        <member name="T:Cake.Tfs.AutoMerge.Authentication.TfsCredentialsExtensions">
+            <summary>
+            Extensions for the <see cref="T:Cake.Tfs.AutoMerge.Authentication.ITfsCredentials"/> interface.
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.Authentication.TfsCredentialsExtensions.ToVssCredentials(Cake.Tfs.AutoMerge.Authentication.ITfsCredentials)">
+            <summary>
+            Returns the <see cref="T:Microsoft.VisualStudio.Services.Common.VssCredentials"/> corresponding to a <see cref="T:Cake.Tfs.AutoMerge.Authentication.ITfsCredentials"/> object.
+            </summary>
+            <param name="credentials"><see cref="T:Cake.Tfs.AutoMerge.Authentication.ITfsCredentials"/> credential instance.</param>
+            <returns><see cref="T:Microsoft.VisualStudio.Services.Common.VssCredentials"/> instance.</returns>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.Authentication.ITfsCredentials">
+            <summary>
+            Interface for different credential types.
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.Authentication.TfsBasicCredentials">
+            <summary>
+            Credentials for basic authentication.
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.Authentication.TfsBasicCredentials.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Tfs.AutoMerge.Authentication.TfsBasicCredentials"/> class.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.Authentication.TfsBasicCredentials.UserName">
+            <summary>
+            Gets the user name.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.Authentication.TfsBasicCredentials.Password">
+            <summary>
+            Gets the password.
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.Authentication.TfsNtlmCredentials">
+            <summary>
+            Credentials for integrated / NTLM authentication.
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.Authentication.TfsOAuthCredentials">
+            <summary>
+            Credentials for OAuth authentication.
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.Authentication.TfsOAuthCredentials.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cake.Tfs.AutoMerge.Authentication.TfsOAuthCredentials"/> class.
+            </summary>
+            <param name="accessToken">OAuth access token.</param>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.Authentication.TfsOAuthCredentials.AccessToken">
+            <summary>
+            Gets the OAuth access token.
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.AutoMergeAliases">
+            <summary>
+            Cake aliases for TFS auto merge operations.
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeAliases.CreateAutoMergePullRequest(Cake.Core.ICakeContext,Cake.Tfs.AutoMerge.AutoMergeSettings,System.Action{Cake.Tfs.AutoMerge.AutoMergeCredentials})">
+            <summary>
+            If an active Pull Request is opened from sourceBranch to  targetBranch return this instance. Create a new instance in other case.
+            </summary>
+            <param name="ctx">Cake context</param>
+            <param name="settings">Settings to connect to TFS server</param>
+            <param name="credentialConfigurator">Credentials to connect to TFS server</param>
+            <returns>The existing Pull Request if exists otherwise the newly created.</returns>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.AutoMergeCredentials">
+            <summary>
+            Configure Auto Merge connection credentials
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeCredentials.Credentials">
+            <summary>
+            Configured credentials
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeCredentials.AuthenticationNtlm">
+            <summary>
+            Returns credentials for integrated / NTLM authentication.
+            Can only be used for on-premise Team Foundation Server.
+            </summary>
+            <returns>Same object instance.</returns>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeCredentials.AuthenticationBasic(System.String,System.String)">
+            <summary>
+            Returns credentials for basic authentication.
+            Can only be used for on-premise Team Foundation Server configured for basic authentication.
+            See https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/tfs-basic-auth.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="password">Password.</param>
+            <returns>Same object instance.</returns>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeCredentials.AuthenticationPersonalAccessToken(System.String)">
+            <summary>
+            Returns credentials for authentication with a personal access token.
+            Can be used for Team Foundation Server and Visual Studio Team Services.
+            </summary>
+            <param name="personalAccessToken">Personal access token.</param>
+            <returns>Same object instance.</returns>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeCredentials.AuthenticationOAuth(System.String)">
+            <summary>
+            Returns credentials for OAuth authentication.
+            Can only be used with Visual Studio Team Services.
+            </summary>
+            <param name="accessToken">OAuth access token.</param>
+            <returns>Same object instance.</returns>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.AutoMergeReviewer">
+            <summary>
+            Represents Auto Merge Reviewer
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeReviewer.Id">
+            <summary>
+            Pull Request reviewer Id
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeReviewer.Vote">
+            <summary>
+            Pull Request vote
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.NamespaceDoc">
+            <summary>
+            This namespace contain types 
+            representing data used for interaction with JSON.
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.AutoMergeSettings">
+            <summary>
+            Auto Merge TFS settings
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.CollectionUri">
+            <summary>
+            TFS Collection url.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.ProjectName">
+            <summary>
+            TFS Project name.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.RepositoryName">
+            <summary>
+            TFS Repository name.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.SourceBranch">
+            <summary>
+            Pull Request source branch.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.TargetBranch">
+            <summary>
+            Pull Request target branch.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.Title">
+            <summary>
+            Pull Request title.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.Description">
+            <summary>
+            Pull Request description.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.DeleteSourceBranch">
+            <summary>
+            Pull Request delete source branch after merge.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.SquashMerge">
+            <summary>
+            Pull Request uses Squash merge strategy.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.AutoComplete">
+            <summary>
+            Pull Request auto complete after creation.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.AutoApprove">
+            <summary>
+            Pull Request auto approve after creation.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.OverridePolicies">
+            <summary>
+            Pull Request override existing policies.
+            </summary>
+        </member>
+        <member name="P:Cake.Tfs.AutoMerge.AutoMergeSettings.Reviewers">
+            <summary>
+            Pull Request reviewers.
+            </summary>
+        </member>
+        <member name="M:Cake.Tfs.AutoMerge.AutoMergeSettings.#ctor">
+            <summary>
+            Creates default settings instance
+            </summary>
+        </member>
+        <member name="T:Cake.Tfs.AutoMerge.AutoMergeVote">
+            <summary>
+            Defines the vote for a Team Foundation Server or Visual Studio Team Services pull request.
+            </summary>
+        </member>
+        <member name="F:Cake.Tfs.AutoMerge.AutoMergeVote.Rejected">
+            <summary>
+            The changes aren't acceptable.
+            </summary>
+        </member>
+        <member name="F:Cake.Tfs.AutoMerge.AutoMergeVote.WaitingForAuthor">
+            <summary>
+            Do not approve the changes, the author should take some actions.
+            </summary>
+        </member>
+        <member name="F:Cake.Tfs.AutoMerge.AutoMergeVote.ResetFeedback">
+            <summary>
+            Reset a previous vote.
+            </summary>
+        </member>
+        <member name="F:Cake.Tfs.AutoMerge.AutoMergeVote.ApprovedWithSuggestions">
+            <summary>
+            Approve the changes but let the author know there are some suggestions.
+            </summary>
+        </member>
+        <member name="F:Cake.Tfs.AutoMerge.AutoMergeVote.Approved">
+            <summary>
+            Approve the changes.
+            </summary>
+        </member>
+    </members>
+</doc>
