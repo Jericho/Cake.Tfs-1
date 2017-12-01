@@ -104,10 +104,10 @@ namespace Cake.Tfs.AutoMerge.Services
         }
 
         _log.Verbose("Attempt to add reviewer to Pull Request");
-        var reviewerIdentity = new IdentityRefWithVote
-        {
-          Id = reviewer.Id,
-          Vote = (short)reviewer.Vote
+        var reviewerIdentity = new IdentityRefWithVote(
+          new IdentityRef{Id = reviewer.Id })
+        { 
+          Vote = (short)reviewer.Vote.GetValueOrDefault()
         };
 
         var result = client.CreatePullRequestReviewerAsync(

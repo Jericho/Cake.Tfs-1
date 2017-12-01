@@ -13,6 +13,6 @@
     /// <summary>
     /// Pull Request vote
     /// </summary>
-    public AutoMergeVote Vote { get; set; }
+    public AutoMergeVote? Vote { get; set; }
   }
 }
