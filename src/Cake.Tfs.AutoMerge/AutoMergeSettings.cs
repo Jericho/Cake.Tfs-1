@@ -81,6 +81,8 @@ namespace Cake.Tfs.AutoMerge
     {
       AutoComplete = true;
       AutoApprove = true;
+
+      Reviewers = new List<AutoMergeReviewer>();
     }
   }
 }
