@@ -27,7 +27,7 @@ Task("Merge")
 		CreateAutoMergePullRequest(
 			new AutoMergeSettings 
 			{
-                // Required
+		                // Required
 				CollectionUri = "https://{instance}/{collection-name}",
 				ProjectName = "project-name",
 				RepositoryName = "repository-name",
@@ -35,15 +35,15 @@ Task("Merge")
 				TargetBranch = "refs/heads/develop",
 				Title = "[Auto Merge from Release]",
 
-                // Optional
+                		// Optional
 				Description = "Brief description of the changes about to get merge",
 
-                // Control
+                		// Control
 				DeleteSourceBranch = false,
 				SquashMerge = false,
 				OverridePolicies = true,
-                AutoComplete = true,
-                AutoApprove = true
+				AutoComplete = true,
+				AutoApprove = true
 			});
 	});
 
