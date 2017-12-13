@@ -1,4 +1,7 @@
 # Cake.Tfs
+
+[![Build status](https://ci.appveyor.com/api/projects/status/1nsdhkb7y8wk6e3y/branch/master?svg=true)](https://ci.appveyor.com/project/mabreuortega/cake-tfs/branch/master)
+
 Collection of Cake TFS tools and extensions.
 
 ## Cake.Tfs.AutoMerge
