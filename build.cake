@@ -45,9 +45,7 @@ Task("Build")
     .Does(() => {
         DotNetBuild(solutionFile, c => c
             .SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Minimal)
-			.WithTarget("Build")
-            .WithProperty("TreatWarningsAsErrors", "True"));
+            .SetVerbosity(Verbosity.Minimal));
     });
 
 Task("Pack")
