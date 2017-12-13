@@ -43,9 +43,10 @@ Task("Version")
 
 Task("Build")
     .Does(() => {
-        DotNetBuild(solutionFile, c => c
+        MSBuild(solutionFile, c => c
             .SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Minimal));
+            .SetVerbosity(Verbosity.Minimal)
+			.WithTarget("Build"));
     });
 
 Task("Pack")
