@@ -4,6 +4,7 @@
     <id>Cake.Tfs.AutoMerge</id>
     <version>$version$</version>
     <title>Cake Tfs AutoMerge</title>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <authors>Miguel Abreu</authors>
     <owners>Being Code LLC</owners>
     <projectUrl>https://github.com/mabreuortega/Cake.Tfs</projectUrl>
